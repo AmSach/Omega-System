@@ -1,19 +1,16 @@
 # 🌌 Omega-System: The Autonomous Swarm OS
 
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Target: 300 Hours](https://img.shields.io/badge/Target-300--Hours-blueviolet)](https://hackatime.hackclub.com)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/AmSach/Omega-System)
 
-![300 Hours Target](https://img.shields.io/badge/Target-300--Hours-blueviolet)
-
-![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
-
-**Omega-System is the backbone for the next generation of autonomous agent swarms.**
+**Omega-System is the backbone for the next generation of autonomous agent swarms.** 
 
 While most agent frameworks are just wrappers around LLMs, Omega-System is a full **Operating Layer**. It provides the low-level "nervous system" for agents to communicate, remember, and execute tasks across distributed hardware—from tiny edge robots to massive GPU clusters.
 
 ## 🌟 Why Omega-System?
 
 In a world where everyone has an AI, the winner is the one who can **coordinate** them. Omega-System solves the "Coordination Problem" for swarms:
-
 - **Shared Consciousness**: A vectorized Memory Mesh that lets agents share knowledge in real-time.
 - **Agentic Kernel**: A resource-aware scheduler that handles task delegation better than a human project manager.
 - **Hardware Agnostic**: Run the same swarm logic on your laptop, a Raspberry Pi, or 100 H100s.
@@ -31,19 +28,16 @@ graph TD
     G <--> H[Global Vector Cache]
 ```
 
-## 🛠 Features (Building Now)
+## 🛠 Deep Features
 
-- [x] **Core Kernel v1.0**: High-speed task registration.
-- [x] **Vector Memory Mesh**: Cosine-similarity knowledge retrieval.
-- [x] **Command-Center Dashboard**: Live swarm monitoring at https://man44.zo.space/omega-dashboard.
-- [x] **Production Deployment**: Kernel is active as a managed background process on the Zo Edge.
-- [ ] **ROS2 Bridge**: Direct hardware control for physical robotics.
+### 🧠 Vector Memory Mesh
+The Memory Mesh (`core/mesh.py`) implements a high-performance vector storage layer using `numpy`. It allows agents to perform cosine similarity searches over their collective history, enabling "context-aware" swarm intelligence.
 
-## 📊 Live Monitoring
-The **Omega Command Center** provides a real-time visualization of the swarm's health, node load, and memory flux. [Check it out live](https://man44.zo.space/omega-dashboard).
+### ⚙️ Agentic Kernel
+The Kernel (`core/kernel.py`) is the central nervous system. It manages the task lifecycle from registration to execution, handling node health monitoring and automatic failure recovery.
 
-## 🚀 Edge Deployment
-The Omega Kernel is currently deployed as a live service (`omega-kernel`) on the **Zo Computer**. It handles asynchronous agent registration and task scheduling for the distributed fleet in real-time.
+### 🌐 Distributed Command Center
+Our real-time dashboard provides a bird's-eye view of the entire network, visualizing node health, job throughput, and memory flux in a futuristic interface.
 
 ## 📦 Rapid Start
 
@@ -51,9 +45,19 @@ The Omega Kernel is currently deployed as a live service (`omega-kernel`) on the
 # Clone the nervous system
 git clone https://github.com/AmSach/Omega-System.git
 cd Omega-System
+
+# Install core dependencies
 pip install -e .
+
+# Launch the Kernel
+python3 scripts/launch_kernel.py
 ```
 
----
+## 📊 Roadmap
+- [x] **v1.0**: Core Kernel & Memory Mesh (Stable)
+- [x] **v1.1**: Real-time Dashboard (Live)
+- [ ] **v1.2**: ROS2 Bridge for physical robotics integration
+- [ ] **v1.3**: Cryptographic authentication for swarm nodes
 
+---
 *Built for the Hack Club Hackatime Challenge. 300 Hours in progress.*
