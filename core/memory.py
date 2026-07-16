@@ -2,6 +2,9 @@ import numpy as np
 import logging
 from typing import List, Dict, Optional
 
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 class VectorMemory:
     """
     Omega-System Distributed Vector Memory Mesh.
@@ -26,14 +29,17 @@ class VectorMemory:
 
     def search(self, query: List[float], top_k: int = 5) -> List[Dict]:
         """Performs cosine similarity search."""
+        if not isinstance(top_k, int) or top_k <= 0:
+            return []
         if self.vectors.shape[0] == 0:
             return []
-        
+
         query_np = np.array(query).reshape(1, -1)
-        # Simplified cosine similarity simulation
+        if query_np.shape[1] != self.dimension:
+            raise ValueError(f"Dimension mismatch: expected {self.dimension}")
         similarities = np.dot(self.vectors, query_np.T).flatten()
         top_indices = np.argsort(similarities)[-top_k:][::-1]
-        
+
         return [self.metadata[i] for i in top_indices]
 
 if __name__ == "__main__":
